@@ -70,7 +70,7 @@
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
-      <version>3.1.0.3.0.0.0-1574</version>
+      <version>3.1.2</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -106,7 +106,7 @@
     <dependency>
       <groupId>org.apache.hive</groupId>
       <artifactId>hive-exec</artifactId>
-      <version>3.1.0.3.0.0.0-1574</version>
+      <version>3.1.2</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -208,6 +208,10 @@
         <exclusion>
           <artifactId>stax-api</artifactId>
           <groupId>stax</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>hive-upgrade-acid</artifactId>
+          <groupId>org.apache.hive</groupId>
         </exclusion>
       </exclusions>
     </dependency>

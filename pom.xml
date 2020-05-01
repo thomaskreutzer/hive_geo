@@ -44,6 +44,13 @@
 			<artifactId>h2gis</artifactId>
 			<version>1.5.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.osgeo/proj4j -->
+		<dependency>
+			<groupId>org.osgeo</groupId>
+			<artifactId>proj4j</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
