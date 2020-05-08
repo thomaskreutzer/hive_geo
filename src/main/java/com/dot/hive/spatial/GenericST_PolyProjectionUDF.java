@@ -31,7 +31,7 @@ extended = "Returns NULL if any argument is NULL.\n"
 + "  > ,'EPSG:4326', 'EPSG:3857') AS wkt;"
 )
 
-public class GenericST_PolyProjectionUDF  extends GenericUDF {
+public class GenericST_PolyProjectionUDF extends GenericUDF {
 	private final Text wktOut = new Text();
 	PrimitiveObjectInspector inputOI0;
 	PrimitiveObjectInspector inputOI1;
