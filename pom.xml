@@ -50,6 +50,17 @@
 			<artifactId>proj4j</artifactId>
 			<version>0.1.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core 
+		Added this function because it caused LLAP and HIVE to not start when it baked in 2.3.0 version of Jackson
+		Could have just removed from the compiled jar, but updated in build. 
+		-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
