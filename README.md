@@ -50,4 +50,12 @@ SELECT ST_projection('LINESTRING(-71.160281 42.258729,-71.160837 42.259113,-71.1
 When using with Hive this function may be bundled with a version of jackson-core that is not compatible. Please update the pom.xml in order to match the version deployed on your HDP cluster with Hive. 
 
 
+**Example:** HDP 3.1.5
 
+```XML
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+```
