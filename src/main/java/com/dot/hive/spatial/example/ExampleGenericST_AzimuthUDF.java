@@ -19,11 +19,38 @@ public class ExampleGenericST_AzimuthUDF {
 	public static void main(String[] args) throws HiveException, IOException {
 		ExampleGenericST_AzimuthUDF t = new ExampleGenericST_AzimuthUDF();
 		t.testConst();
+		t.testDuplicatedValue();
 	}
 	
 	public void testConst() throws HiveException, IOException {
 		String point1 = "POINT(-73.99191613398102 40.85293293570688)";
 		String point2 = "POINT(-73.98966951517899 40.85034641308286)";
+		
+		Text point1Writeable = new Text(point1);
+		Text point2Writeable = new Text(point2);
+		
+		ObjectInspector valueOI0 = PrimitiveObjectInspectorFactory.getPrimitiveWritableConstantObjectInspector(TypeInfoFactory.stringTypeInfo, point1Writeable);
+		ObjectInspector valueOI1 = PrimitiveObjectInspectorFactory.getPrimitiveWritableConstantObjectInspector(TypeInfoFactory.stringTypeInfo, point2Writeable);
+		ObjectInspector[] oiArgs = { valueOI0, valueOI1 };
+		
+		DeferredObject valueObj0 = new DeferredJavaObject(point1Writeable);
+		DeferredObject valueObj1 = new DeferredJavaObject(point2Writeable);
+		DeferredObject[] doArgs = { valueObj0, valueObj1 };
+		
+		GenericST_AzimuthUDF udf = new GenericST_AzimuthUDF();
+		udf.initialize(oiArgs);
+		
+		System.out.println(udf.evaluate(doArgs));
+		
+		udf.close();
+		
+	}
+	
+	public void testDuplicatedValue() throws HiveException, IOException {
+		//This is an example with bad data which can exist in a set where both points passed in are the same
+		// it caused Null Pointer Exceptions returning null where it should have returned double
+		String point1 = "POINT(-73.99191613398102 40.85293293570688)";
+		String point2 = "POINT(-73.99191613398102 40.85293293570688)";
 		
 		Text point1Writeable = new Text(point1);
 		Text point2Writeable = new Text(point2);

@@ -44,8 +44,12 @@ public class GenericST_AzimuthUDF extends GenericUDF {
 		Object arg0 = arguments[0].get(); //point 01
 		Object arg1 = arguments[1].get(); //point 02
 		
+		//Create a default double value to be returned only when two values passed in are the same point
+		Double dbl_dflt = new Double("0.0");
+		
 		if (arg0 == null) return null;
 		if (arg1 == null) return null;
+		if (arg0.equals(arg1)) return dbl_dflt;
 		
 		//Get the resolution variable
 		String point1 = (String) inputOI0.getPrimitiveJavaObject(arg0);
